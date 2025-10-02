@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import GridPattern from "@/components/GridPattern";
+import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -58,13 +60,24 @@ const Projects = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+        <GridPattern className="opacity-30" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              My Projects
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <Sparkles size={16} className="text-primary" />
+              <span className="text-sm font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Portfolio Showcase
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                My Projects
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               A showcase of my work across web development, SEO, software testing, and more
             </p>
           </AnimatedSection>
@@ -72,35 +85,40 @@ const Projects = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20">
+        <GridPattern className="opacity-20" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <AnimatedSection
                 key={project.id}
                 animation={index % 3 === 0 ? "slide-in-left" : index % 3 === 1 ? "fade-in-up" : "slide-in-right"}
               >
-                <div className="group relative rounded-xl overflow-hidden bg-card border border-border hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  {/* Project Image Placeholder */}
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-6xl">
-                    {project.image}
+                <GlassCard className="group overflow-hidden p-0">
+                  {/* Project Image with gradient overlay */}
+                  <div className="relative aspect-video bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center overflow-hidden">
+                    <div className="text-7xl group-hover:scale-110 transition-transform duration-500">
+                      {project.image}
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
 
                   {/* Project Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
+                          className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-primary text-xs font-semibold rounded-full"
                         >
                           {tag}
                         </span>
@@ -110,16 +128,13 @@ const Projects = () => {
                     {/* Link */}
                     <a
                       href={project.link}
-                      className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
+                      className="inline-flex items-center gap-2 text-primary hover:gap-3 font-semibold transition-all group/link"
                     >
                       View Case Study
-                      <ArrowRight size={16} />
+                      <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
                     </a>
                   </div>
-
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                </div>
+                </GlassCard>
               </AnimatedSection>
             ))}
           </div>
@@ -127,21 +142,28 @@ const Projects = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Like What You See?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-              Let's work together on your next project. I'm available for freelance opportunities.
-            </p>
-            <Button asChild variant="hero" size="lg">
-              <Link to="/contact">
-                Get In Touch
-                <ArrowRight size={18} />
-              </Link>
-            </Button>
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
+        <GridPattern className="opacity-20" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <GlassCard className="p-12 text-center max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Like What You See?
+                </span>
+              </h2>
+              <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                Let's work together on your next project. I'm available for freelance opportunities.
+              </p>
+              <Button asChild variant="hero" size="lg" className="group">
+                <Link to="/contact">
+                  Get In Touch
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </GlassCard>
           </AnimatedSection>
         </div>
       </section>

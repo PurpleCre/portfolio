@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import GridPattern from "@/components/GridPattern";
+import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
 import {
   Code2,
@@ -10,6 +12,7 @@ import {
   Smartphone,
   ArrowRight,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 const Services = () => {
@@ -71,13 +74,24 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+        <GridPattern className="opacity-30" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Services I Offer
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <Sparkles size={16} className="text-primary" />
+              <span className="text-sm font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Professional Services
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Services I Offer
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Comprehensive digital solutions tailored to your business needs
             </p>
           </AnimatedSection>
@@ -85,8 +99,10 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20">
+        <GridPattern className="opacity-20" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
@@ -95,38 +111,41 @@ const Services = () => {
                   key={service.title}
                   animation={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
                 >
-                  <div className="p-8 rounded-2xl bg-card border border-border hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
-                    {/* Icon */}
-                    <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6`}>
-                      <Icon className="text-white" size={32} />
+                  <GlassCard className="p-8 group h-full">
+                    <div className="relative">
+                      {/* Icon with gradient glow */}
+                      <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[var(--shadow-glow)]`}>
+                        <Icon className="text-white" size={36} />
+                      </div>
+                      <div className="absolute -top-2 -left-2 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors" />
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="text-2xl font-bold text-foreground mb-3">
+                    <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       {service.description}
                     </p>
 
                     {/* Features */}
-                    <ul className="space-y-3 mb-6">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <CheckCircle2 className="text-primary flex-shrink-0 mt-0.5" size={20} />
+                    <ul className="space-y-3 mb-8">
+                      {service.features.map((feature, i) => (
+                        <li key={feature} className="flex items-start gap-3 group/item">
+                          <CheckCircle2 className="text-primary flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" size={20} />
                           <span className="text-sm text-muted-foreground">{feature}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* CTA */}
-                    <Button asChild variant="outline" className="w-full">
+                    <Button asChild variant="outline" className="w-full group/btn border-2">
                       <Link to="/contact">
                         Get Started
-                        <ArrowRight size={16} />
+                        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
-                  </div>
+                  </GlassCard>
                 </AnimatedSection>
               );
             })}
@@ -135,11 +154,16 @@ const Services = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Additional Expertise
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
+        <GridPattern className="opacity-20" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Additional Expertise
+              </span>
             </h2>
             <p className="text-muted-foreground text-lg">
               Other areas where I can help
@@ -147,68 +171,62 @@ const Services = () => {
           </AnimatedSection>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <AnimatedSection animation="fade-in-up">
-              <div className="p-6 rounded-xl bg-card border border-border text-center">
-                <Database className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Database Management
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  SQL, PostgreSQL, and database optimization
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="fade-in-up">
-              <div className="p-6 rounded-xl bg-card border border-border text-center">
-                <Smartphone className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Mobile Development
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Kotlin and cross-platform solutions
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="fade-in-up">
-              <div className="p-6 rounded-xl bg-card border border-border text-center">
-                <FileText className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Data Entry
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Accurate data processing and management
-                </p>
-              </div>
-            </AnimatedSection>
+            {[
+              { icon: Database, title: "Database Management", desc: "SQL, PostgreSQL, and database optimization" },
+              { icon: Smartphone, title: "Mobile Development", desc: "Kotlin and cross-platform solutions" },
+              { icon: FileText, title: "Data Entry", desc: "Accurate data processing and management" },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <AnimatedSection key={item.title} animation="fade-in-up">
+                  <GlassCard className="p-8 text-center group">
+                    <div className="relative inline-block mb-6">
+                      <Icon className="text-primary mx-auto group-hover:scale-110 transition-transform duration-500" size={48} />
+                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/30 transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </GlassCard>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-              Let's discuss how I can help bring your vision to life
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Contact Me
-                  <ArrowRight size={18} />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/projects">
-                  View My Work
-                </Link>
-              </Button>
-            </div>
+      <section className="relative py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/20" />
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <GlassCard className="p-12 text-center max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Ready to Start Your Project?
+                </span>
+              </h2>
+              <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                Let's discuss how I can help bring your vision to life
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild variant="hero" size="lg" className="group">
+                  <Link to="/contact">
+                    Contact Me
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-2">
+                  <Link to="/projects">
+                    View My Work
+                  </Link>
+                </Button>
+              </div>
+            </GlassCard>
           </AnimatedSection>
         </div>
       </section>
