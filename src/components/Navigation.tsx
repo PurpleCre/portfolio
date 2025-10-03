@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import MagneticButton from "@/components/MagneticButton";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +42,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -54,9 +56,12 @@ const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild variant="hero" size="sm">
-              <Link to="/contact">Hire Me</Link>
-            </Button>
+            <ThemeToggle />
+            <MagneticButton strength={0.2}>
+              <Button asChild variant="hero" size="sm">
+                <Link to="/contact">Hire Me</Link>
+              </Button>
+            </MagneticButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,11 +91,14 @@ const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild variant="hero" size="sm" className="w-full">
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
-                Hire Me
-              </Link>
-            </Button>
+            <div className="flex items-center gap-3 pt-2">
+              <ThemeToggle />
+              <Button asChild variant="hero" size="sm" className="flex-1">
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  Hire Me
+                </Link>
+              </Button>
+            </div>
           </div>
         )}
       </div>

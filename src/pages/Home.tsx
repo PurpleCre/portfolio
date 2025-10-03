@@ -5,6 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
 import Terminal from "@/components/Terminal";
+import MagneticButton from "@/components/MagneticButton";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { useCountUp } from "@/hooks/useCountUp";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -58,19 +59,23 @@ const Home = () => {
 
           <AnimatedSection animation="scale-in">
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <Button asChild variant="hero" size="lg" className="group relative overflow-hidden">
-                <Link to="/projects">
-                  <span className="relative z-10">View My Work</span>
-                  <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="group border-2">
-                <Link to="/contact">
-                  <Code size={18} className="group-hover:rotate-12 transition-transform" />
-                  Hire Me
-                </Link>
-              </Button>
+              <MagneticButton strength={0.3}>
+                <Button asChild variant="hero" size="lg" className="group relative overflow-hidden">
+                  <Link to="/projects">
+                    <span className="relative z-10">View My Work</span>
+                    <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </Button>
+              </MagneticButton>
+              <MagneticButton strength={0.3}>
+                <Button asChild variant="outline" size="lg" className="group border-2">
+                  <Link to="/contact">
+                    <Code size={18} className="group-hover:rotate-12 transition-transform" />
+                    Hire Me
+                  </Link>
+                </Button>
+              </MagneticButton>
             </div>
           </AnimatedSection>
 
@@ -247,12 +252,14 @@ const Home = () => {
           </div>
 
           <AnimatedSection className="text-center mt-16">
-            <Button asChild variant="outline" size="lg" className="group border-2">
-              <Link to="/services">
-                View All Services
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            <MagneticButton strength={0.25}>
+              <Button asChild variant="outline" size="lg" className="group border-2">
+                <Link to="/services">
+                  View All Services
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </MagneticButton>
           </AnimatedSection>
         </div>
       </section>
