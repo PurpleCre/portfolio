@@ -12,9 +12,9 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+      {/* Section 1: Hero/Introduction */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Animated background with mesh gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
         <div 
@@ -27,7 +27,7 @@ const Home = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
         
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-in">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-sm font-medium mb-8 backdrop-blur-sm">
               <Sparkles size={16} className="text-primary animate-pulse" />
@@ -79,21 +79,6 @@ const Home = () => {
             </div>
           </AnimatedSection>
 
-          {/* Terminal Animation */}
-          <AnimatedSection animation="fade-in">
-            <Terminal 
-              lines={[
-                "npm install @talent/developer",
-                "Initializing modern web stack...",
-                "✓ React + TypeScript loaded",
-                "✓ Supabase connected",
-                "✓ Tailwind CSS compiled",
-                "Ready to build amazing things! 🚀"
-              ]}
-              typingSpeed={30}
-            />
-          </AnimatedSection>
-
           {/* Tech badges */}
           <AnimatedSection animation="fade-in">
             <div className="flex flex-wrap gap-3 justify-center items-center max-w-2xl mx-auto">
@@ -118,12 +103,38 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quick Stats Section with Animated Count-Up */}
-      <section className="relative py-24 overflow-hidden">
+      {/* Section 2: Terminal Animation & Skills */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
         <GridPattern className="opacity-20" />
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Building With Modern Tech
+              </span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Full-stack development powered by cutting-edge tools and frameworks
+            </p>
+          </AnimatedSection>
+
+          {/* Terminal Animation */}
+          <AnimatedSection animation="fade-in" className="mb-12">
+            <Terminal 
+              lines={[
+                "npm install @talent/developer",
+                "Initializing modern web stack...",
+                "✓ React + TypeScript loaded",
+                "✓ Supabase connected",
+                "✓ Tailwind CSS compiled",
+                "Ready to build amazing things! 🚀"
+              ]}
+              typingSpeed={30}
+            />
+          </AnimatedSection>
+
           <AnimatedSection>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <StatCard value={5} suffix="+" label="Years Experience" icon={Zap} delay={0} />
@@ -133,15 +144,22 @@ const Home = () => {
             </div>
           </AnimatedSection>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
+            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
+          </div>
+        </div>
       </section>
 
-      {/* Bento Grid Section */}
-      <section className="relative py-24 overflow-hidden">
+      {/* Section 3: Why Work With Me - Bento Grid */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/10" />
         <GridPattern className="opacity-20" />
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 Why Work With Me
@@ -205,14 +223,21 @@ const Home = () => {
             </BentoGridItem>
           </BentoGrid>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
+            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
+          </div>
+        </div>
       </section>
 
-      {/* Featured Services Preview */}
-      <section className="relative py-24">
+      {/* Section 4: Services & Capabilities */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         <GridPattern className="opacity-20" />
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 What I Do Best
@@ -223,7 +248,7 @@ const Home = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
               {[
                 { icon: Code, title: "Web Development", desc: "React, Supabase, and modern web technologies to build scalable applications.", delay: "0s" },
                 { icon: Sparkles, title: "SEO Optimization", desc: "Boost your rankings and drive traffic with data-driven SEO strategies.", delay: "0.1s" },
@@ -251,7 +276,7 @@ const Home = () => {
               })}
           </div>
 
-          <AnimatedSection className="text-center mt-16">
+          <AnimatedSection className="text-center">
             <MagneticButton strength={0.25}>
               <Button asChild variant="outline" size="lg" className="group border-2">
                 <Link to="/services">
@@ -261,6 +286,13 @@ const Home = () => {
               </Button>
             </MagneticButton>
           </AnimatedSection>
+        </div>
+
+        {/* Final scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
+            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
+          </div>
         </div>
       </section>
     </div>
