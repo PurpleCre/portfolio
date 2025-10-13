@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
+import SEO from "@/components/SEO";
+import MagneticButton from "@/components/MagneticButton";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 
@@ -58,9 +60,15 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+    <>
+      <SEO 
+        title="Projects - Portfolio Showcase"
+        description="Explore my portfolio of web development projects including SEO optimization, React applications, Python projects, and more. 50+ completed projects."
+        keywords="web development portfolio, React projects, SEO projects, full-stack projects, Python applications, Supabase projects"
+      />
+      <div className="min-h-screen pt-20">
+        {/* Hero Section */}
+        <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
         <GridPattern className="opacity-30" />
         
@@ -157,17 +165,20 @@ const Projects = () => {
               <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
                 Let's work together on your next project. I'm available for freelance opportunities.
               </p>
-              <Button asChild variant="hero" size="lg" className="group">
-                <Link to="/contact">
-                  Get In Touch
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+              <MagneticButton strength={0.3}>
+                <Button asChild variant="hero" size="lg" className="group">
+                  <Link to="/contact">
+                    Get In Touch
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </MagneticButton>
             </GlassCard>
           </AnimatedSection>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

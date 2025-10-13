@@ -1,10 +1,13 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+import GlassCard from "@/components/GlassCard";
+import GridPattern from "@/components/GridPattern";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, MapPin, Phone, Github, Linkedin, Briefcase } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Linkedin, Briefcase, ArrowRight, Sparkles } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -17,6 +20,35 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Basic validation
+    if (formData.name.trim().length < 2) {
+      toast({
+        title: "Invalid name",
+        description: "Please enter your full name.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.email.includes("@") || formData.email.trim().length < 5) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.message.trim().length < 10) {
+      toast({
+        title: "Message too short",
+        description: "Please provide more details about your project.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Simulate form submission
@@ -40,15 +72,30 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO 
+        title="Contact - Get In Touch"
+        description="Have a project in mind? Get in touch to discuss web development, SEO optimization, software testing, or any digital solution needs. Available for freelance work."
+        keywords="contact developer, hire developer, freelance web developer, React developer contact, SEO consultant contact"
+      />
+      <div className="min-h-screen pt-20">
+        {/* Hero Section */}
+        <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Let's Work Together
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <Mail size={16} className="text-primary" />
+              <span className="text-sm font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Get In Touch
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Let's Work Together
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Have a project in mind? Get in touch and let's create something amazing
             </p>
           </AnimatedSection>
@@ -56,15 +103,19 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20">
+        <GridPattern className="opacity-20" />
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <AnimatedSection animation="slide-in-left">
-              <div className="bg-card border border-border rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-6">
-                  Send Me a Message
+              <GlassCard className="p-8">
+                <h2 className="text-3xl font-bold mb-2">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Send Me a Message
+                  </span>
                 </h2>
+                <p className="text-muted-foreground mb-6">I usually respond within 24 hours</p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
@@ -131,55 +182,63 @@ const Contact = () => {
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
+                    <ArrowRight size={18} />
                   </Button>
                 </form>
-              </div>
+              </GlassCard>
             </AnimatedSection>
 
             {/* Contact Info */}
             <AnimatedSection animation="slide-in-right">
               <div className="space-y-8">
                 {/* Contact Details */}
-                <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-6">
-                    Contact Information
+                <GlassCard className="p-8">
+                  <h2 className="text-3xl font-bold mb-2">
+                    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      Contact Information
+                    </span>
                   </h2>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="text-primary" size={24} />
+                  <p className="text-muted-foreground mb-6">Reach out through any channel</p>
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4 group hover:translate-x-2 transition-transform">
+                      <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0 shadow-[var(--shadow-glow)] group-hover:scale-110 transition-transform">
+                        <Mail className="text-white" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                        <p className="text-muted-foreground">contact@example.com</p>
+                        <h3 className="font-bold text-foreground mb-1">Email</h3>
+                        <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-primary transition-colors">
+                          contact@example.com
+                        </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="text-primary" size={24} />
+                    <div className="flex items-start gap-4 group hover:translate-x-2 transition-transform">
+                      <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0 shadow-[var(--shadow-glow)] group-hover:scale-110 transition-transform">
+                        <Phone className="text-white" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                        <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                        <h3 className="font-bold text-foreground mb-1">Phone</h3>
+                        <a href="tel:+15551234567" className="text-muted-foreground hover:text-primary transition-colors">
+                          +1 (555) 123-4567
+                        </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="text-primary" size={24} />
+                    <div className="flex items-start gap-4 group hover:translate-x-2 transition-transform">
+                      <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0 shadow-[var(--shadow-glow)] group-hover:scale-110 transition-transform">
+                        <MapPin className="text-white" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Location</h3>
-                        <p className="text-muted-foreground">Available worldwide</p>
+                        <h3 className="font-bold text-foreground mb-1">Location</h3>
+                        <p className="text-muted-foreground">Available worldwide (Remote)</p>
                       </div>
                     </div>
                   </div>
-                </div>
+                </GlassCard>
 
                 {/* Social Links */}
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
+                <GlassCard className="p-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-6">
                     Connect With Me
                   </h3>
                   <div className="flex gap-4">
@@ -187,47 +246,53 @@ const Contact = () => {
                       href="https://github.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 hover:scale-110"
-                      aria-label="GitHub"
+                      className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
+                      aria-label="Visit my GitHub profile"
                     >
-                      <Github size={24} />
+                      <Github size={24} className="text-foreground group-hover:text-white transition-colors" />
                     </a>
                     <a
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 hover:scale-110"
-                      aria-label="LinkedIn"
+                      className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
+                      aria-label="Visit my LinkedIn profile"
                     >
-                      <Linkedin size={24} />
+                      <Linkedin size={24} className="text-foreground group-hover:text-white transition-colors" />
                     </a>
                     <a
                       href="https://fiverr.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 hover:scale-110"
-                      aria-label="Fiverr"
+                      className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
+                      aria-label="Visit my Fiverr profile"
                     >
-                      <Briefcase size={24} />
+                      <Briefcase size={24} className="text-foreground group-hover:text-white transition-colors" />
                     </a>
                   </div>
-                </div>
+                </GlassCard>
 
                 {/* Availability */}
-                <div className="p-6 bg-primary/10 rounded-xl border border-primary/20">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    Currently Available
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    I'm open to freelance opportunities and new projects. Let's discuss how I can help you achieve your goals.
-                  </p>
-                </div>
+                <GlassCard className="p-8 border-primary/30">
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse mt-1.5" />
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground mb-2">
+                        Currently Available
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        I'm open to freelance opportunities and new projects. Let's discuss how I can help you achieve your goals.
+                      </p>
+                    </div>
+                  </div>
+                </GlassCard>
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

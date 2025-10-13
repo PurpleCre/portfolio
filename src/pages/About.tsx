@@ -1,6 +1,7 @@
 import AnimatedSection from "@/components/AnimatedSection";
 import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
+import SEO from "@/components/SEO";
 import {
   Code2,
   Database,
@@ -38,9 +39,15 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+    <>
+      <SEO 
+        title="About Me - Full-Stack Developer"
+        description="Passionate full-stack developer combining technical expertise with creative problem-solving. Specializing in React, Supabase, SEO, and software testing."
+        keywords="about developer, full-stack developer skills, React developer, web development expertise, software testing professional"
+      />
+      <div className="min-h-screen pt-20">
+        {/* Hero Section */}
+        <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
         <GridPattern className="opacity-30" />
         
@@ -203,7 +210,8 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

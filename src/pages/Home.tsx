@@ -8,13 +8,20 @@ import Terminal from "@/components/Terminal";
 import MagneticButton from "@/components/MagneticButton";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { useCountUp } from "@/hooks/useCountUp";
+import SEO from "@/components/SEO";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Home = () => {
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-      {/* Section 1: Hero/Introduction */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+    <>
+      <SEO 
+        title="Full-Stack Developer & Digital Solutions Expert"
+        description="Full-stack developer specializing in React, Supabase, SEO optimization, and software testing. Building modern web applications with 5+ years of experience."
+        keywords="full-stack developer, React developer, Supabase, TypeScript, SEO optimization, software testing, web development, Tailwind CSS"
+      />
+      <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+        {/* Section 1: Hero/Introduction */}
+        <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         {/* Animated background with mesh gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
         <div 
@@ -295,7 +302,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

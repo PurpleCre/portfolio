@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
+import SEO from "@/components/SEO";
+import MagneticButton from "@/components/MagneticButton";
 import { Button } from "@/components/ui/button";
 import {
   Code2,
@@ -72,9 +74,15 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+    <>
+      <SEO 
+        title="Services - Web Development & Digital Solutions"
+        description="Professional web development, SEO optimization, software testing, and content writing services. Specialized in React, Supabase, and modern web technologies."
+        keywords="web development services, SEO optimization, software testing, React development, Supabase development, technical writing, freelance developer"
+      />
+      <div className="min-h-screen pt-20">
+        {/* Hero Section */}
+        <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
         <GridPattern className="opacity-30" />
         
@@ -214,23 +222,28 @@ const Services = () => {
                 Let's discuss how I can help bring your vision to life
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild variant="hero" size="lg" className="group">
-                  <Link to="/contact">
-                    Contact Me
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-2">
-                  <Link to="/projects">
-                    View My Work
-                  </Link>
-                </Button>
+                <MagneticButton strength={0.3}>
+                  <Button asChild variant="hero" size="lg" className="group">
+                    <Link to="/contact">
+                      Contact Me
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </MagneticButton>
+                <MagneticButton strength={0.2}>
+                  <Button asChild variant="outline" size="lg" className="border-2">
+                    <Link to="/projects">
+                      View My Work
+                    </Link>
+                  </Button>
+                </MagneticButton>
               </div>
             </GlassCard>
           </AnimatedSection>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
