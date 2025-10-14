@@ -4,6 +4,7 @@ import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
 import SEO from "@/components/SEO";
 import MagneticButton from "@/components/MagneticButton";
+import SkillBadge from "@/components/SkillBadge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 
@@ -124,12 +125,9 @@ const Projects = () => {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-primary text-xs font-semibold rounded-full"
-                        >
+                        <SkillBadge key={tag} variant="primary">
                           {tag}
-                        </span>
+                        </SkillBadge>
                       ))}
                     </div>
 

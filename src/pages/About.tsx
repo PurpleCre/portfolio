@@ -2,6 +2,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
 import SEO from "@/components/SEO";
+import SkillBadge from "@/components/SkillBadge";
 import {
   Code2,
   Database,
@@ -12,6 +13,8 @@ import {
   Sparkles,
   Zap,
   Target,
+  Award,
+  TrendingUp,
 } from "lucide-react";
 
 const About = () => {
@@ -152,14 +155,13 @@ const About = () => {
                     <h3 className="text-lg font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                       {skill.category}
                     </h3>
-                    <ul className="space-y-2.5">
+                    <div className="flex flex-wrap gap-2">
                       {skill.items.map((item) => (
-                        <li key={item} className="text-sm text-muted-foreground flex items-center group/item">
-                          <span className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mr-3 group-hover/item:scale-125 transition-transform" />
+                        <SkillBadge key={item} variant="primary">
                           {item}
-                        </li>
+                        </SkillBadge>
                       ))}
-                    </ul>
+                    </div>
                   </GlassCard>
                 </AnimatedSection>
               );
@@ -181,11 +183,12 @@ const About = () => {
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               { icon: Zap, title: "Clean Code", desc: "Writing maintainable, scalable code that stands the test of time" },
               { icon: Target, title: "Innovation", desc: "Embracing new technologies and pushing boundaries" },
               { icon: BookOpen, title: "Continuous Learning", desc: "Always growing, always improving my craft" },
+              { icon: Award, title: "Quality First", desc: "Delivering excellence in every project, every time" },
             ].map((value, i) => {
               const Icon = value.icon;
               return (
