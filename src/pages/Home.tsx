@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Sparkles, Zap, Rocket, Star, Brain, Globe, Trophy } from "lucide-react";
+import { ArrowRight, Code, Sparkles, Zap, Rocket, Star, Brain, Globe, Trophy, ChevronDown, Pause, Play } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
@@ -9,9 +9,17 @@ import MagneticButton from "@/components/MagneticButton";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { useCountUp } from "@/hooks/useCountUp";
 import SEO from "@/components/SEO";
+import ParticleBackground from "@/components/ParticleBackground";
+import { useAutoScroll } from "@/hooks/useAutoScroll";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Home = () => {
+  const { currentSection, isAutoScrolling, pauseAutoScroll, resumeAutoScroll } = useAutoScroll({
+    sectionCount: 4,
+    intervalMs: 10000,
+    enabled: true,
+  });
+
   return (
     <>
       <SEO 
@@ -19,9 +27,34 @@ const Home = () => {
         description="Full-stack developer specializing in React, Supabase, SEO optimization, and software testing. Building modern web applications with 5+ years of experience."
         keywords="full-stack developer, React developer, Supabase, TypeScript, SEO optimization, software testing, web development, Tailwind CSS"
       />
+      
+      {/* Auto-scroll controls */}
+      <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-2">
+        <button
+          onClick={isAutoScrolling ? pauseAutoScroll : resumeAutoScroll}
+          className="p-3 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 hover:bg-primary/30 transition-all"
+          aria-label={isAutoScrolling ? "Pause auto-scroll" : "Resume auto-scroll"}
+        >
+          {isAutoScrolling ? <Pause className="w-5 h-5 text-primary" /> : <Play className="w-5 h-5 text-primary" />}
+        </button>
+        <div className="flex flex-col gap-1 items-center">
+          {[0, 1, 2, 3].map((index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentSection === index ? "bg-primary scale-125" : "bg-primary/30"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
         {/* Section 1: Hero/Introduction */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+        <section data-section="0" className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+        {/* Particle Background */}
+        <ParticleBackground />
+        
         {/* Animated background with mesh gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
         <div 
@@ -104,14 +137,12 @@ const Home = () => {
 
         {/* Enhanced scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
-            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
-          </div>
+          <ChevronDown className="w-8 h-8 text-primary/70" />
         </div>
       </section>
 
       {/* Section 2: Terminal Animation & Skills */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+      <section data-section="1" className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
         <GridPattern className="opacity-20" />
         
@@ -154,14 +185,12 @@ const Home = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
-            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
-          </div>
+          <ChevronDown className="w-8 h-8 text-primary/70" />
         </div>
       </section>
 
       {/* Section 3: Why Work With Me - Bento Grid */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+      <section data-section="2" className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/10" />
         <GridPattern className="opacity-20" />
         
@@ -233,14 +262,12 @@ const Home = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
-            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
-          </div>
+          <ChevronDown className="w-8 h-8 text-primary/70" />
         </div>
       </section>
 
       {/* Section 4: Services & Capabilities */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
+      <section data-section="3" className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always">
         <GridPattern className="opacity-20" />
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
@@ -295,12 +322,7 @@ const Home = () => {
           </AnimatedSection>
         </div>
 
-        {/* Final scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 bg-background/50 backdrop-blur-sm">
-            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
-          </div>
-        </div>
+        {/* Final scroll indicator (removed for last section) */}
       </section>
       </div>
     </>
