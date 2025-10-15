@@ -75,7 +75,7 @@ const Footer = () => {
             </h4>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/purplecre"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -84,7 +84,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/panashegonese1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -93,7 +93,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://fiverr.com"
+                href="https://www.fiverr.com/s/NN12kPp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -102,7 +102,7 @@ const Footer = () => {
                 <Briefcase size={20} />
               </a>
               <a
-                href="mailto:contact@example.com"
+                href="mailto:pgonese6@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
