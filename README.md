@@ -10,7 +10,7 @@ I wrote this webapp to test my skills on something I was passionate about
 
 # Web Pages
 
-I have four main pages, namely, HOme, ABout, projects, and Contacts. The home page is the landing pag, from them you have multiple CTAs redirecting to the other three pages, there is also a common nav and footer with redirects to a ny of the four pages. On the home page skills and most of the content is dynamically injected, the same is true for the rest of the pages. In the projects page each project is dynamically injected using a template and iterators.
+I have four main pages, namely, Home, ABout, projects, and Contacts. The home page is the landing pag, from them you have multiple CTAs redirecting to the other three pages, there is also a common nav and footer with redirects to a ny of the four pages. On the home page skills and most of the content is dynamically injected, the same is true for the rest of the pages. In the projects page each project is dynamically injected using a template and iterators.
 
 # Development Environment
 
@@ -25,7 +25,6 @@ I used React and TYscript to write this webapp. I also used a variety of librari
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
 * email intergration
 * Better project detail display
 * a better interactive walkthrough of the site on landing page.
