@@ -11,16 +11,16 @@ import ParticleBackground from "@/components/ParticleBackground";
 
 // Project data - in a real app, this would come from an API or database
 const projectsData = {
-  "mahwe-mining": {
+  "mahwe-marketing": {
     id: 1,
-    title: "Mahwe Mining Website",
-    description: "SEO optimization and marketing website for Zimbabwe's mining industry",
+    title: "Mahwe Marketing Website",
+    description: "SEO optimization and marketing website for Zimbabwe's semi-precious stone mining industry",
     fullDescription: "Developed a comprehensive marketing and SEO-optimized website for Mahwe Mining, one of Zimbabwe's leading mining companies. The project focused on improving online visibility, showcasing services, and generating quality leads through strategic content placement and technical SEO implementations.",
-    tags: ["SEO", "Marketing", "WordPress"],
+    tags: ["SEO", "Marketing", "React", "e-commerce"],
     image: "🏭",
     date: "2024",
-    client: "Mahwe Mining Ltd",
-    role: "Web Developer & SEO Specialist",
+    client: "Mahwe Marketing Ltd",
+    role: "Lead Web Developer & SEO Specialist",
     challenges: [
       "Optimizing site performance for low-bandwidth regions",
       "Implementing comprehensive SEO strategy for competitive industry",
@@ -36,21 +36,21 @@ const projectsData = {
       "Improved page load time by 60%",
       "Achieved first-page rankings for 12 target keywords"
     ],
-    technologies: ["WordPress", "PHP", "SEO Tools", "Google Analytics"],
-    link: "#",
+    technologies: ["React", "Javascript", "SEO Tools", "Google Analytics", "Tailwind CSS", "Github", "CPanel"],
+    link: "https://mahwe.co.zw",
   },
-  "student-employer-app": {
+  "kukura-zimbabwe": {
     id: 2,
-    title: "Student-Employer Web App",
+    title: "Kukura Zimbabwe Web App",
     description: "React + Supabase application with onboarding flows and job matching",
     fullDescription: "Built a full-stack web application connecting students with potential employers. Features include user authentication, profile management, job posting and matching system, and real-time notifications. The platform streamlines the hiring process for both students and employers.",
     tags: ["React", "Supabase", "Full-Stack"],
     image: "👥",
     date: "2024",
-    client: "University Career Services",
+    client: "Kukura Zimbabwe",
     role: "Full-Stack Developer",
     challenges: [
-      "Designing intuitive onboarding flows for two user types",
+      "Designing intuitive onboarding flows for three user types",
       "Implementing real-time job matching algorithm",
       "Ensuring data security and privacy compliance"
     ],
@@ -75,8 +75,8 @@ const projectsData = {
     tags: ["Python", "Tkinter", "Database"],
     image: "📱",
     date: "2023",
-    client: "Educational Institution",
-    role: "IoT Developer & Software Engineer",
+    client: "VinciTech Research and Development",
+    role: "IoT Developer & Lead Software Engineer",
     challenges: [
       "Integrating hardware RFID readers with software interface",
       "Managing real-time data synchronization",
@@ -92,21 +92,21 @@ const projectsData = {
       "Reduced attendance processing time by 90%",
       "Successfully deployed across 5 departments"
     ],
-    technologies: ["Python", "Tkinter", "SQLite", "RFID Hardware"],
+    technologies: ["Python", "Tkinter", "SQLite", "RFID Hardware", "Serial Communication", "Arduino"],
     link: "#",
   },
-  "qr-scanner": {
+  "pogos-loyalty": {
     id: 4,
-    title: "QR Scanner App",
-    description: "React demo with live QR code scanning and permission handling",
-    fullDescription: "Created a progressive web application for scanning QR codes using device camera. The app demonstrates WebRTC capabilities, camera permission handling, and real-time barcode detection. Features include scan history, data validation, and export functionality.",
-    tags: ["React", "QR Code", "WebRTC"],
+    title: "Pogos Loyalty App",
+    description: "Loyalty app for a restaraunt utilixing cutting edge tech",
+    fullDescription: "Created a progressive android native application for scanning QR codes using device camera. The app demonstrates WebRTC capabilities, camera permission handling, and real-time barcode detection. Features include scan history, data validation, export functionality, points award system, and user interactoin and management.",
+    tags: ["Commercial", "QR Code", "WebRTC", "Android"],
     image: "📷",
     date: "2024",
-    client: "Demo Project",
-    role: "Frontend Developer",
+    client: "Pogos",
+    role: "Full-Stack Developer",
     challenges: [
-      "Handling camera permissions across different browsers",
+      "Handling camera permissions across different browsers and devices",
       "Implementing reliable QR code detection in varying lighting",
       "Creating responsive interface for mobile devices"
     ],
@@ -118,9 +118,9 @@ const projectsData = {
     results: [
       "Successfully scans QR codes in <500ms",
       "Works across all major browsers and devices",
-      "Featured in web development showcase"
+      "Featured in android development showcase"
     ],
-    technologies: ["React", "WebRTC", "HTML5 Canvas", "Progressive Web App"],
+    technologies: ["React", "WebRTC", "HTML5 Canvas", "Progressive Web App", "React", "QR Code", "TypeScript", "TailwindCSS", "Capacitor", "Kotlin", "Android Studio"],
     link: "#",
   },
   "book-reviews": {
