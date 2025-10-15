@@ -175,9 +175,9 @@ const Home = () => {
 
           <AnimatedSection>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <StatCard value={5} suffix="+" label="Years Experience" icon={Zap} delay={0} />
-              <StatCard value={50} suffix="+" label="Projects Completed" icon={Rocket} delay={0.2} />
-              <StatCard value={20} suffix="+" label="Happy Clients" icon={Star} delay={0.4} />
+              <StatCard value={4} suffix="+" label="Years Experience" icon={Zap} delay={0} />
+              <StatCard value={10} suffix="+" label="Projects Completed" icon={Rocket} delay={0.2} />
+              <StatCard value={4} suffix="+" label="Happy Clients" icon={Star} delay={0.4} />
               <StatCard value={100} suffix="%" label="Quality Assured" icon={Sparkles} delay={0.6} />
             </div>
           </AnimatedSection>
@@ -284,7 +284,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
               {[
-                { icon: Code, title: "Web & Android Development", desc: "React, Android, and modern technologies to build scalable applications across platforms.", delay: "0s" },
+                { icon: Code, title: "Web, Software & Android Development", desc: "React, Android, and modern technologies to build scalable applications across platforms.", delay: "0s" },
                 { icon: Brain, title: "IoT Development", desc: "Building intelligent IoT-based projects connecting hardware and software seamlessly.", delay: "0.1s" },
                 { icon: Sparkles, title: "Software Testing", desc: "Manual and automated testing with Selenium to ensure quality and reliability.", delay: "0.2s" },
               ].map((service, i) => {
