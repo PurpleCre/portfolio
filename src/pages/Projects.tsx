@@ -12,51 +12,57 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      slug: "mahwe-mining",
       title: "Mahwe Mining Website",
       description: "SEO optimization and marketing website for Zimbabwe's mining industry",
       tags: ["SEO", "Marketing", "WordPress"],
       image: "🏭",
-      link: "#",
+      category: "Web Development",
     },
     {
       id: 2,
+      slug: "student-employer-app",
       title: "Student-Employer Web App",
       description: "React + Supabase application with onboarding flows and job matching",
       tags: ["React", "Supabase", "Full-Stack"],
       image: "👥",
-      link: "#",
+      category: "Full-Stack",
     },
     {
       id: 3,
+      slug: "rfid-attendance",
       title: "RFID Attendance System",
       description: "Python + Tkinter desktop app with database integration",
       tags: ["Python", "Tkinter", "Database"],
       image: "📱",
-      link: "#",
+      category: "IoT & Software",
     },
     {
       id: 4,
+      slug: "qr-scanner",
       title: "QR Scanner App",
       description: "React demo with live QR code scanning and permission handling",
       tags: ["React", "QR Code", "WebRTC"],
       image: "📷",
-      link: "#",
+      category: "Web Development",
     },
     {
       id: 5,
+      slug: "book-reviews",
       title: "Book Reviews Platform",
       description: "OnlineBookClub reviews and professional writing portfolio",
       tags: ["Writing", "Content", "Reviews"],
       image: "📚",
-      link: "#",
+      category: "Content Creation",
     },
     {
       id: 6,
+      slug: "ecommerce-dashboard",
       title: "E-Commerce Dashboard",
       description: "Analytics and inventory management system",
       tags: ["React", "TypeScript", "Charts"],
       image: "📊",
-      link: "#",
+      category: "Web Development",
     },
   ];
 
@@ -104,43 +110,49 @@ const Projects = () => {
                 key={project.id}
                 animation={index % 3 === 0 ? "slide-in-left" : index % 3 === 1 ? "fade-in-up" : "slide-in-right"}
               >
-                <GlassCard className="group overflow-hidden p-0">
-                  {/* Project Image with gradient overlay */}
-                  <div className="relative aspect-video bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center overflow-hidden">
-                    <div className="text-7xl group-hover:scale-110 transition-transform duration-500">
-                      {project.image}
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-
-                  {/* Project Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag) => (
-                        <SkillBadge key={tag} variant="primary">
-                          {tag}
-                        </SkillBadge>
-                      ))}
+                <Link to={`/projects/${project.slug}`} className="block">
+                  <GlassCard className="group overflow-hidden p-0 cursor-pointer hover:shadow-[var(--shadow-lifted)]">
+                    {/* Category Badge */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <SkillBadge variant="accent" className="backdrop-blur-md">
+                        {project.category}
+                      </SkillBadge>
                     </div>
 
-                    {/* Link */}
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-primary hover:gap-3 font-semibold transition-all group/link"
-                    >
-                      View Case Study
-                      <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </GlassCard>
+                    {/* Project Image with gradient overlay */}
+                    <div className="relative aspect-video bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center overflow-hidden">
+                      <div className="text-7xl group-hover:scale-110 transition-transform duration-500">
+                        {project.image}
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+
+                    {/* Project Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-2">
+                        {project.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tags.map((tag) => (
+                          <SkillBadge key={tag} variant="primary">
+                            {tag}
+                          </SkillBadge>
+                        ))}
+                      </div>
+
+                      {/* Link */}
+                      <div className="inline-flex items-center gap-2 text-primary hover:gap-3 font-semibold transition-all group/link">
+                        View Case Study
+                        <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </GlassCard>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
