@@ -76,9 +76,9 @@ const Contact = () => {
   return (
     <>
       <SEO 
-        title="Contact - Get In Touch"
-        description="Have a project in mind? Get in touch to discuss web development, SEO optimization, software testing, or any digital solution needs. Available for freelance work."
-        keywords="contact developer, hire developer, freelance web developer, React developer contact, SEO consultant contact"
+        title="Contact Panashe Gonese - Get In Touch"
+        description="Have a project in mind? Contact Panashe Gonese to discuss web development, Android apps, IoT projects, SEO optimization, or software testing. Available for freelance work."
+        keywords="contact Panashe Gonese, hire developer, freelance web developer, Android developer contact, IoT developer, React developer contact"
       />
       <div className="min-h-screen pt-20">
         {/* Hero Section */}

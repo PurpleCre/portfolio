@@ -63,9 +63,9 @@ const Projects = () => {
   return (
     <>
       <SEO 
-        title="Projects - Portfolio Showcase"
-        description="Explore my portfolio of web development projects including SEO optimization, React applications, Python projects, and more. 50+ completed projects."
-        keywords="web development portfolio, React projects, SEO projects, full-stack projects, Python applications, Supabase projects"
+        title="Panashe Gonese - Projects Portfolio"
+        description="Explore Panashe Gonese's portfolio: web development, Android apps, IoT projects, SEO optimization, React applications, and more. 50+ completed projects."
+        keywords="Panashe Gonese portfolio, web development projects, Android projects, IoT projects, React applications, full-stack projects, Supabase projects"
       />
       <div className="min-h-screen pt-20">
         {/* Hero Section */}

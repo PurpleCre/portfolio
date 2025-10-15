@@ -33,17 +33,17 @@ const Services = () => {
       color: "from-blue-500 to-cyan-500",
     },
     {
-      icon: Search,
-      title: "SEO Optimization",
-      description: "Drive organic traffic and improve search rankings",
+      icon: Smartphone,
+      title: "Android & IoT Development",
+      description: "Native Android apps and IoT-based solutions",
       features: [
-        "Technical SEO audits",
-        "On-page optimization",
-        "Keyword research & strategy",
-        "Content optimization",
-        "Performance monitoring",
+        "Native Android development with Kotlin",
+        "IoT system design and integration",
+        "Hardware-software connectivity",
+        "Sensor integration and data processing",
+        "Real-time monitoring systems",
       ],
-      color: "from-purple-500 to-pink-500",
+      color: "from-green-500 to-teal-500",
     },
     {
       icon: TestTube,
@@ -56,29 +56,29 @@ const Services = () => {
         "Bug tracking & reporting",
         "Risk management",
       ],
-      color: "from-green-500 to-emerald-500",
+      color: "from-red-500 to-orange-500",
     },
     {
-      icon: FileText,
-      title: "Content & Writing",
-      description: "Professional writing and documentation services",
+      icon: Search,
+      title: "SEO Optimization",
+      description: "Drive organic traffic and improve search rankings",
       features: [
-        "Technical documentation",
-        "Book reviews",
-        "Content creation",
-        "Copy writing",
-        "Blog posts",
+        "Technical SEO audits",
+        "On-page optimization",
+        "Keyword research & strategy",
+        "Content optimization",
+        "Performance monitoring",
       ],
-      color: "from-orange-500 to-red-500",
+      color: "from-purple-500 to-pink-500",
     },
   ];
 
   return (
     <>
       <SEO 
-        title="Services - Web Development & Digital Solutions"
-        description="Professional web development, SEO optimization, software testing, and content writing services. Specialized in React, Supabase, and modern web technologies."
-        keywords="web development services, SEO optimization, software testing, React development, Supabase development, technical writing, freelance developer"
+        title="Panashe Gonese - Services & Digital Solutions"
+        description="Panashe Gonese offers professional web development, Android apps, IoT projects, SEO optimization, and software testing. Specialized in React, Android, and modern technologies."
+        keywords="Panashe Gonese services, web development, Android development, IoT development, SEO optimization, software testing, React development, freelance developer"
       />
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
@@ -183,8 +183,8 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               { icon: Database, title: "Database Management", desc: "SQL, PostgreSQL, and database optimization" },
-              { icon: Smartphone, title: "Mobile Development", desc: "Kotlin and cross-platform solutions" },
-              { icon: FileText, title: "Data Entry", desc: "Accurate data processing and management" },
+              { icon: FileText, title: "Technical Writing", desc: "Documentation, content creation, and technical articles" },
+              { icon: Code2, title: "Python Development", desc: "Automation, scripting, and backend solutions" },
             ].map((item, i) => {
               const Icon = item.icon;
               return (

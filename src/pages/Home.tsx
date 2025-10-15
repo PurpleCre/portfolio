@@ -23,9 +23,9 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="Full-Stack Developer & Digital Solutions Expert"
-        description="Full-stack developer specializing in React, Supabase, SEO optimization, and software testing. Building modern web applications with 5+ years of experience."
-        keywords="full-stack developer, React developer, Supabase, TypeScript, SEO optimization, software testing, web development, Tailwind CSS"
+        title="Panashe Gonese - Full-Stack Developer & Digital Solutions Expert"
+        description="Panashe Gonese: Full-stack developer specializing in web, Android, and software development. Expert in React, Supabase, IoT projects, SEO optimization, and software testing with 5+ years of experience."
+        keywords="Panashe Gonese, full-stack developer, React developer, Android developer, IoT projects, Supabase, TypeScript, SEO optimization, software testing, web development"
       />
       
       {/* Auto-scroll controls */}
@@ -92,8 +92,8 @@ const Home = () => {
 
           <AnimatedSection animation="fade-in-up">
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-              Building modern web applications, optimizing SEO, and delivering quality software testing. 
-              From React apps to automated testing frameworks—I bring your ideas to life.
+              Specializing in web development, Android apps, and IoT-based projects. 
+              From React applications to automated testing frameworks—I bring innovative solutions to life.
             </p>
           </AnimatedSection>
 
@@ -122,7 +122,7 @@ const Home = () => {
           {/* Tech badges */}
           <AnimatedSection animation="fade-in">
             <div className="flex flex-wrap gap-3 justify-center items-center max-w-2xl mx-auto">
-              {["React", "TypeScript", "Supabase", "Tailwind", "SEO"].map((tech, i) => (
+              {["React", "Android", "IoT", "Supabase", "TypeScript", "SEO"].map((tech, i) => (
                 <div 
                   key={tech}
                   className="px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 text-sm font-medium hover:border-primary/50 transition-colors"
@@ -209,12 +209,12 @@ const Home = () => {
           <BentoGrid>
             <BentoGridItem
               title="Full-Stack Expertise"
-              description="From React frontends to Supabase backends, I build complete solutions"
+              description="From web to Android to IoT-based systems, I build complete solutions"
               icon={<Code size={40} />}
               className="md:col-span-2"
             >
               <div className="mt-4 space-y-2">
-                {["React & TypeScript", "Supabase & PostgreSQL", "RESTful APIs"].map((tech) => (
+                {["Web & Android Development", "IoT-Based Projects", "Supabase & PostgreSQL", "RESTful APIs"].map((tech) => (
                   <div key={tech} className="flex items-center gap-2 text-sm">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                     <span className="text-muted-foreground">{tech}</span>
@@ -284,9 +284,9 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
               {[
-                { icon: Code, title: "Web Development", desc: "React, Supabase, and modern web technologies to build scalable applications.", delay: "0s" },
-                { icon: Sparkles, title: "SEO Optimization", desc: "Boost your rankings and drive traffic with data-driven SEO strategies.", delay: "0.1s" },
-                { icon: Code, title: "Software Testing", desc: "Manual and automated testing with Selenium to ensure quality.", delay: "0.2s" },
+                { icon: Code, title: "Web & Android Development", desc: "React, Android, and modern technologies to build scalable applications across platforms.", delay: "0s" },
+                { icon: Brain, title: "IoT Development", desc: "Building intelligent IoT-based projects connecting hardware and software seamlessly.", delay: "0.1s" },
+                { icon: Sparkles, title: "Software Testing", desc: "Manual and automated testing with Selenium to ensure quality and reliability.", delay: "0.2s" },
               ].map((service, i) => {
                 const Icon = service.icon;
                 return (

@@ -26,6 +26,11 @@ const About = () => {
       items: ["React", "Supabase", "Tailwind CSS", "REST APIs", "TypeScript"],
     },
     {
+      category: "Android & IoT",
+      icon: Smartphone,
+      items: ["Android Development", "Kotlin", "IoT Systems", "Hardware Integration"],
+    },
+    {
       category: "Software Testing",
       icon: TestTube,
       items: ["Selenium", "QA Testing", "Risk Management", "Test Automation"],
@@ -33,21 +38,16 @@ const About = () => {
     {
       category: "Business & SEO",
       icon: Search,
-      items: ["SEO Optimization", "Marketing Websites", "Analytics", "Content Strategy"],
-    },
-    {
-      category: "Other Skills",
-      icon: Smartphone,
-      items: ["Kotlin", "Python", "Technical Writing", "Data Entry"],
+      items: ["SEO Optimization", "Marketing Websites", "Analytics", "Python"],
     },
   ];
 
   return (
     <>
       <SEO 
-        title="About Me - Full-Stack Developer"
-        description="Passionate full-stack developer combining technical expertise with creative problem-solving. Specializing in React, Supabase, SEO, and software testing."
-        keywords="about developer, full-stack developer skills, React developer, web development expertise, software testing professional"
+        title="About Panashe Gonese - Full-Stack Developer"
+        description="Panashe Gonese: Passionate full-stack developer with expertise in web development, Android apps, IoT projects, and software testing. Combining technical skills with creative problem-solving."
+        keywords="Panashe Gonese, about developer, full-stack developer skills, Android developer, IoT developer, React developer, web development expertise, software testing"
       />
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
@@ -96,24 +96,24 @@ const About = () => {
               <GlassCard className="p-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Hi, I'm a Full-Stack Developer
+                    Hi, I&apos;m Panashe Gonese
                   </span>
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    I specialize in building modern web applications using React, Supabase, and
-                    cutting-edge technologies. With a strong foundation in both frontend and backend
-                    development, I create seamless user experiences backed by robust infrastructure.
+                    I&apos;m a full-stack developer specializing in web development, Android applications, 
+                    and innovative IoT-based projects. With expertise in React, Supabase, and 
+                    cutting-edge technologies, I create seamless user experiences backed by robust infrastructure.
                   </p>
                   <p>
-                    Beyond development, I'm passionate about SEO optimization and software testing.
-                    I've helped businesses in various industries improve their online presence and
-                    ensure their applications meet the highest quality standards.
+                    My experience spans across multiple domains—from building responsive web applications 
+                    to developing native Android apps and creating intelligent IoT systems that bridge 
+                    hardware and software. I&apos;ve helped businesses leverage technology to solve real-world problems.
                   </p>
                   <p>
-                    My diverse skill set includes everything from automated testing with Selenium to
-                    technical writing and content creation. I believe in continuous learning and
-                    staying ahead of industry trends.
+                    Beyond development, I&apos;m passionate about SEO optimization and software testing. 
+                    My diverse skill set includes automated testing with Selenium, technical writing, 
+                    and content creation. I believe in continuous learning and staying ahead of industry trends.
                   </p>
                 </div>
               </GlassCard>
