@@ -21,7 +21,7 @@ import {
 const About = () => {
   const skills = [
     {
-      category: "Web Development",
+      category: "Web & Software Development",
       icon: Code2,
       items: ["React", "Supabase", "Tailwind CSS", "REST APIs", "TypeScript"],
     },
