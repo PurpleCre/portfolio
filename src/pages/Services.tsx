@@ -17,7 +17,9 @@ import {
   Sparkles,
 } from "lucide-react";
 
+// Services Page Component
 const Services = () => {
+  // Services Data
   const services = [
     {
       icon: Code2,

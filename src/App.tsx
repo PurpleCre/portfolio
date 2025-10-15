@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Main App Content with Routing and Layout
 const AppContent = () => {
   const location = useLocation();
   
@@ -37,6 +38,7 @@ const AppContent = () => {
   );
 };
 
+// Main App Component with Providers
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>

@@ -20,6 +20,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+// Contact Page Component
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Handle Form Submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -73,6 +75,7 @@ const Contact = () => {
     }, 1000);
   };
 
+  // Handle Input Changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

@@ -18,7 +18,10 @@ import {
   TrendingUp,
 } from "lucide-react";
 
+// About Page Component
 const About = () => {
+
+  // Skills Data
   const skills = [
     {
       category: "Web & Software Development",

@@ -13,6 +13,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 import { useAutoScroll } from "@/hooks/useAutoScroll";
 import heroBg from "@/assets/hero-bg.jpg";
 
+// Home Page Component
 const Home = () => {
   const { currentSection, isAutoScrolling, pauseAutoScroll, resumeAutoScroll } = useAutoScroll({
     sectionCount: 4,

@@ -181,10 +181,12 @@ const projectsData = {
   },
 };
 
+// Project Detail Page Component
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? projectsData[slug as keyof typeof projectsData] : null;
 
+  // If project not found, show 404 message
   if (!project) {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">

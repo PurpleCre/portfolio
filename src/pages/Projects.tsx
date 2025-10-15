@@ -8,7 +8,9 @@ import SkillBadge from "@/components/SkillBadge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 
+// Projects Page Component
 const Projects = () => {
+  // Sample Projects Data
   const projects = [
     {
       id: 1,
