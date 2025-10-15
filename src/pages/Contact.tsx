@@ -3,6 +3,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import GlassCard from "@/components/GlassCard";
 import GridPattern from "@/components/GridPattern";
 import SEO from "@/components/SEO";
+import MagneticButton from "@/components/MagneticButton";
+import ParticleBackground from "@/components/ParticleBackground";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -82,6 +84,7 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+        <ParticleBackground />
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
@@ -174,16 +177,18 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    variant="hero"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <ArrowRight size={18} />
-                  </Button>
+                  <MagneticButton strength={0.3} className="w-full">
+                    <Button
+                      type="submit"
+                      variant="hero"
+                      size="lg"
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      <ArrowRight size={18} />
+                    </Button>
+                  </MagneticButton>
                 </form>
               </GlassCard>
             </AnimatedSection>
@@ -242,33 +247,39 @@ const Contact = () => {
                     Connect With Me
                   </h3>
                   <div className="flex gap-4">
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
-                      aria-label="Visit my GitHub profile"
-                    >
-                      <Github size={24} className="text-foreground group-hover:text-white transition-colors" />
-                    </a>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
-                      aria-label="Visit my LinkedIn profile"
-                    >
-                      <Linkedin size={24} className="text-foreground group-hover:text-white transition-colors" />
-                    </a>
-                    <a
-                      href="https://fiverr.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
-                      aria-label="Visit my Fiverr profile"
-                    >
-                      <Briefcase size={24} className="text-foreground group-hover:text-white transition-colors" />
-                    </a>
+                    <MagneticButton strength={0.4}>
+                      <a
+                        href="https://github.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
+                        aria-label="Visit my GitHub profile"
+                      >
+                        <Github size={24} className="text-foreground group-hover:text-white transition-colors" />
+                      </a>
+                    </MagneticButton>
+                    <MagneticButton strength={0.4}>
+                      <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
+                        aria-label="Visit my LinkedIn profile"
+                      >
+                        <Linkedin size={24} className="text-foreground group-hover:text-white transition-colors" />
+                      </a>
+                    </MagneticButton>
+                    <MagneticButton strength={0.4}>
+                      <a
+                        href="https://fiverr.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-14 h-14 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-xl flex items-center justify-center hover:from-primary hover:to-accent hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-[var(--shadow-glow)] group"
+                        aria-label="Visit my Fiverr profile"
+                      >
+                        <Briefcase size={24} className="text-foreground group-hover:text-white transition-colors" />
+                      </a>
+                    </MagneticButton>
                   </div>
                 </GlassCard>
 

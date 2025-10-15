@@ -147,12 +147,14 @@ const Services = () => {
                     </ul>
 
                     {/* CTA */}
-                    <Button asChild variant="outline" className="w-full group/btn border-2">
-                      <Link to="/contact">
-                        Get Started
-                        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
+                    <MagneticButton strength={0.2} className="w-full">
+                      <Button asChild variant="outline" className="w-full group/btn border-2">
+                        <Link to="/contact">
+                          Get Started
+                          <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
+                    </MagneticButton>
                   </GlassCard>
                 </AnimatedSection>
               );

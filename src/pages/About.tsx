@@ -3,6 +3,7 @@ import GridPattern from "@/components/GridPattern";
 import GlassCard from "@/components/GlassCard";
 import SEO from "@/components/SEO";
 import SkillBadge from "@/components/SkillBadge";
+import ParticleBackground from "@/components/ParticleBackground";
 import {
   Code2,
   Database,
@@ -52,6 +53,7 @@ const About = () => {
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+        <ParticleBackground />
         <GridPattern className="opacity-30" />
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
